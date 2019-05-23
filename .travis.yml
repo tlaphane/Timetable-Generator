@@ -38,7 +38,7 @@ before_script:
 # command to run tests
 script:
   - python manage.py test
-  - coverage run ./Register/views.py
+  - coverage run ./tests/test_views.py
   - coverage run ./Register/urls.py
   - pytest
   #- coverage run ./Register/models.py
