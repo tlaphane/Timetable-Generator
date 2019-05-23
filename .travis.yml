@@ -24,7 +24,7 @@ install:
 
 
 before_script:
-  - sqlite3 -e "CREATE DATABASE mydb;"
+  #- sqlite3 -e "CREATE DATABASE mydb;"
 
 # command to run tests
 script:
