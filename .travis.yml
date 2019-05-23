@@ -29,10 +29,10 @@ install:
 
 before_script:
 
-  - mysql -e "CREATE DATABASE travis_ci_db;"
+  #- mysql -e "CREATE DATABASE travis_ci_db;"
 
 
-  #- sqlite3 -e "CREATE DATABASE mydb;"
+  - sqlite3 -e "CREATE DATABASE mydb;"
 
 
 # command to run tests
