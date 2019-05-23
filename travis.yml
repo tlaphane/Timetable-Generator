@@ -1,0 +1,38 @@
+language: python
+python:
+  - "3.6"
+
+
+services: sqlite3
+
+env:
+  - DJANGO=2.0
+
+before_install:
+  - export DJANGO_SETTINGS_MODULE=dineos_boys.settings
+
+  - export PYTHONPATH=$HOME/builds/spmabz/time_table
+  - export PIP_USE_MIRRORS=true
+
+install:
+  - pip install pytest
+  - pip install pytest-cov
+  - pip install coveralls
+  - pip install coverage
+  - pip install Django
+  - pip install pathlib
+
+
+before_script:
+  - sqlite3 -e "CREATE DATABASE mydb;"
+
+# command to run tests
+script:
+  - python manage.py test
+  - coverage run ./Register/views.py
+  - coverage run ./Register/urls.py
+  - coverage run ./Register/models.py
+  #- coverage run ./Timetable/Tests/test_views.py 1
+
+after_success:
+  - coveralls
