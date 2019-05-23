@@ -25,16 +25,15 @@ install:
 
 
 before_script:
-<<<<<<< HEAD:.travis.yml
+
   - mysql -e "CREATE DATABASE travis_ci_db;"
 
-=======
+
   #- sqlite3 -e "CREATE DATABASE mydb;"
->>>>>>> 8130911923ac40a5b211041b18bbe72d04a071ec:.travis.yml
+
 
 # command to run tests
 script:
-  - python manage.py migrate
   - python manage.py test
   - coverage run ./Register/views.py
   - coverage run ./Register/urls.py
@@ -42,4 +41,4 @@ script:
   #- coverage run ./Timetable/Tests/test_views.py 1
 
 after_success:
-  - coveralls
+  - codecov
