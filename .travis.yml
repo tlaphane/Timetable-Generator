@@ -31,7 +31,7 @@ script:
   - python manage.py test
   - coverage run ./Register/views.py
   - coverage run ./Register/urls.py
-  - coverage run ./Register/models.py
+  #- coverage run ./Register/models.py
   #- coverage run ./Timetable/Tests/test_views.py 1
 
 after_success:
