@@ -6,7 +6,8 @@ python:
 services: mysql
 
 env:
-  - DJANGO=2.0
+  #- DJANGO=2.0
+  - DJANGO=1.11.20
 
 before_install:
   - export DJANGO_SETTINGS_MODULE=dineos_boys.settings
@@ -20,8 +21,9 @@ install:
   - pip install pytest-cov
   - pip install coveralls
   - pip install coverage
-  - pip install Django==1.11.20
+  - pip install Django
   - pip install pathlib
+  - pip install django-nose
 
 
 before_script:
