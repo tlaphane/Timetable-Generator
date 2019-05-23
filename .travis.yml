@@ -28,6 +28,7 @@ before_script:
 
 # command to run tests
 script:
+  - python manage.py migrate
   - python manage.py test
   - coverage run ./Register/views.py
   - coverage run ./Register/urls.py
