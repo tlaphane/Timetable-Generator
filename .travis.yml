@@ -3,7 +3,7 @@ python:
   - "3.6"
 
 
-services: sqlite3
+services: mysql
 
 env:
   - DJANGO=2.0
@@ -11,8 +11,9 @@ env:
 before_install:
   - export DJANGO_SETTINGS_MODULE=dineos_boys.settings
 
-  - export PYTHONPATH=$HOME/builds/spmabz/time_table
+  - export PYTHONPATH="/home/travis/build/spmabz/time_table"
   - export PIP_USE_MIRRORS=true
+  - BUILD_ON_TRAVIS=true
 
 install:
   - pip install pytest
@@ -24,7 +25,8 @@ install:
 
 
 before_script:
-  - sqlite3 -e "CREATE DATABASE mydb;"
+  - mysql -e "CREATE DATABASE travis_ci_db;"
+
 
 # command to run tests
 script:
