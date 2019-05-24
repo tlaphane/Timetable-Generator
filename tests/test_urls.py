@@ -1,11 +1,12 @@
 from django.test import SimpleTestCase ,TestCase
-from django.core.urlresolvers import reverse, resolve
+from django.urls import reverse, resolve
 from Register.views import login,register,courses,forgot,resetp,astudent
-#from Timetable.Register.views import login, register
+
 import unittest
 
 
 class TestUrls(unittest.TestCase):
+
     def test_login_url_resolved(self):
         url = reverse('login')
 
@@ -33,9 +34,11 @@ class TestUrls(unittest.TestCase):
         url = reverse('astd',args=[1988])
         self.assertEqual(url,'/login/1988/announcement')
 
-    def  test_astd(self):
+    def  test_asd(self):
         url = reverse('course',args=[1988])
         self.assertEqual(url,'/login/1988/courses')
+
+
 
 if __name__ == '__init__':
     unittest.main()

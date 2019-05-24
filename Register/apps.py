@@ -14,7 +14,7 @@ class CoursesConfig(AppConfig):
 
 
 class AnnouncementsConfig(AppConfig):
-    name = 'Announcement'
+    name = 'Announcements'
 
 
 class ClassConfig(AppConfig):

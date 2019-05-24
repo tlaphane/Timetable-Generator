@@ -114,9 +114,9 @@ def Reg(request):
 
 def makeAnnouncement(request, Staff_No):
 
-    Subject = request.POST['Title']
+    Subject = request.POST.get('Title')
     Course_Code = request.POST.get('Course Code')
-    Content = request.POST['message']
+    Content = request.POST.get('message')
 
     a = Announcements()
     q = Courses.objects.get(Course_Code=Course_Code[-8:])

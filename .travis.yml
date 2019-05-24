@@ -1,12 +1,14 @@
+dist: xenial
 language: python
 python:
   - "3.6"
 
 
-services: mysql
+services: sqlite3
 
 env:
   - DJANGO=2.0
+  #- DJANGO=1.11.20
 
 before_install:
   - export DJANGO_SETTINGS_MODULE=dineos_boys.settings
@@ -22,24 +24,26 @@ install:
   - pip install coverage
   - pip install Django
   - pip install pathlib
+  - pip install django-nose
 
 
 before_script:
-<<<<<<< HEAD:.travis.yml
-  - mysql -e "CREATE DATABASE travis_ci_db;"
 
-=======
+  #- mysql -e "CREATE DATABASE travis_ci_db;"
+
+
   #- sqlite3 -e "CREATE DATABASE mydb;"
->>>>>>> 8130911923ac40a5b211041b18bbe72d04a071ec:.travis.yml
+
 
 # command to run tests
 script:
-  - python manage.py migrate
   - python manage.py test
-  - coverage run ./Register/views.py
-  - coverage run ./Register/urls.py
+  #- coverage run manage.py
+  # - coverage run ./Register/urls.py
+  #- pytest
   #- coverage run ./Register/models.py
   #- coverage run ./Timetable/Tests/test_views.py 1
 
 after_success:
+  - bash <(curl -s https://codecov.io/bash)
   - coveralls

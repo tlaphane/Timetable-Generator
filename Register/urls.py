@@ -33,7 +33,7 @@ urlpatterns = [
     url(r'^staff(?P<Staff_No>[0-9]+)/courses', views.StaffCourses,name = 'SC'),
     url(r'^staff(?P<Staff_No>[0-9]+)/announcement', views.astaff,name ='astaff'),
     url(r'^staff(?P<Staff_No>[0-9]+)/make_announcement', views.make,name='make'),
-    url(r'^staff(?P<Staff_No>[0-9]+)/made_announcement', views.makeAnnouncement,name ='mkA'),
+    url(r'^staff(?P<Staff_No>[0-9]+)/made_announcement', views.makeAnnouncement,name ='mka'),
 
 
     url(r'^staff(?P<Staff_No>[0-9]+)', views.staff,name ='s'),
