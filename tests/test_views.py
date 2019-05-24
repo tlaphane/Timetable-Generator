@@ -20,12 +20,12 @@ class TestViews(TestCase):
             self.s = reverse('s',args =[10])
             self.c= reverse('course',args=[133])
             self.r = reverse('Reg')
-            self.m_A = reverse('mka',args=[100])
+            #self.m_A = reverse('mka',args=[100])
 
-        def test_ma(self):
-            response = self.client.get(self.m_A)
-            self.assertEquals(response.status_code, 200)
-            self.assertTemplateUsed(response, 'Register/Announcements.html')
+        #def test_ma(self):
+         #   response = self.client.get(self.m_A)
+          #  self.assertEquals(response.status_code, 200)
+           # self.assertTemplateUsed(response, 'Register/Announcements.html')
 
         def test_re(self):
             response = self.client.get(self.r)
