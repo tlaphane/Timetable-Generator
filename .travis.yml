@@ -38,12 +38,12 @@ before_script:
 # command to run tests
 script:
   - python manage.py test
-  - coverage run manage.py 
+  #- coverage run manage.py 
   # - coverage run ./Register/urls.py
   #- pytest
   #- coverage run ./Register/models.py
   #- coverage run ./Timetable/Tests/test_views.py 1
 
 after_success:
-  - codecov
+  - bash < (curl -s https://codecov.io/bash)
   - coveralls
