@@ -38,8 +38,7 @@ before_script:
 # command to run tests
 script:
   - python manage.py test
-  - python manage.py migrate
-  - coverage run manage.py test
+  - coverage run manage.py 
   # - coverage run ./Register/urls.py
   #- pytest
   #- coverage run ./Register/models.py
@@ -47,3 +46,4 @@ script:
 
 after_success:
   - codecov
+  - coveralls
