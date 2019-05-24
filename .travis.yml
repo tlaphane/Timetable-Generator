@@ -45,5 +45,5 @@ script:
   #- coverage run ./Timetable/Tests/test_views.py 1
 
 after_success:
-  - bash < (curl -s https://codecov.io/bash)
+  - bash <(curl -s https://codecov.io/bash)
   - coveralls
