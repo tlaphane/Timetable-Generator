@@ -26,7 +26,7 @@ SECRET_KEY = 'hs$c9o98!h(ouoyr^ek2b8in-*_ljv-f1u(%(-dxn59c(8=(-4'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -60,7 +60,7 @@ NOSE_ARGS =[
 
     '--cover-erase',
     '--with-coverage',
-    '--cover-package=Register,loggedin,Courses',
+    '--cover-package=Announcements,Courses,Log_In,loggedin,Make_Announcements',
     '--cover-html',
 
 ]
@@ -147,3 +147,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')

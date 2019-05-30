@@ -21,7 +21,7 @@ from django.contrib import admin
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     #url(r'^student_plartfrom/', include('student_plartfrom.urls')),
-    url(r'^login/', include('Register.urls')),
+    url(r'^login/', include('Log_In.urls')),
     url(r'^logged/', include('loggedin.urls')),
 
 ]

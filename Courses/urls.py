@@ -5,12 +5,12 @@ from django.conf.urls.static import static
 
 urlpatterns = [
 
-    url(r'^', views.courses),
-    url(r'^(?P<STDN>[0-9]+)/courses', views.courses),
-    url(r'^staff(?P<Staff_No>[0-9]+)/courses', views.StaffCourses,name='SC'),
+    url(r'^', views.courses, name='course'),
+    url(r'^(?P<STDN>[0-9]+)/courses', views.courses, name='course'),
+    url(r'^staff(?P<Staff_No>[0-9]+)/courses', views.StaffCourses, name='SC'),
 
 
 ]
 
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+#if settings.DEBUG:
+ #   urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

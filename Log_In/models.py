@@ -37,3 +37,9 @@ class RegisteredStd(models.Model):
 
     def __str__(self):
         return str(self.Std_no) + ' - ' + str(self.Course_Code)
+
+class once(models.Model):
+        Std_no = models.IntegerField(max_length=100)
+
+        def __str__(self):
+            return str(self.Std_no)
