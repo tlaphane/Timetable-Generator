@@ -1,10 +1,13 @@
 from django.conf.urls import url
 from Register import views
+from View_Timetable import views
 
 
 urlpatterns = [
 
     url(r'^$', views.login, name='login'),
+
+    url(r'^$', views.timetable ,name='table'),
 
     url(r'^register', views.register, name='register'),
 

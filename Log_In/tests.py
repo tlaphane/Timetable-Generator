@@ -1,5 +1,7 @@
 from django.test import TestCase,Client
 from django.urls import reverse, resolve
+from django.apps import apps
+from Log_In.apps import Log_InConfig
 
 
 class TestViews(TestCase):
@@ -31,3 +33,8 @@ class TestViews(TestCase):
         response = self.client.get(self.s)
         self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, 'Register/lecturer_page.html')
+
+    def test_apps(self):
+        self.assertEqual(Log_InConfig.name, 'Log_In')
+        self.assertEqual(apps.get_app_config('Log_In').name, 'Log_In')
+

@@ -1,8 +1,12 @@
 """""
 from django.test import TestCase,Client
 from django.urls import reverse, resolve
+<<<<<<< HEAD
 from Courses.models import Courses
 from django.conf import settings
+=======
+from Register.models import Courses
+>>>>>>> a21ffae6262b20a3019900a9e3758ff1c63938e5
 import pytest
 
 
@@ -19,9 +23,18 @@ class TestViews(TestCase):
             self.s = reverse('s',args =[10])
             self.c= reverse('course',args=[133])
             self.r = reverse('Reg')
+<<<<<<< HEAD
 
 
 
+=======
+            #self.m_A = reverse('mka',args=[100])
+
+        #def test_ma(self):
+         #   response = self.client.get(self.m_A)
+          #  self.assertEquals(response.status_code, 200)
+           # self.assertTemplateUsed(response, 'Register/Announcements.html')
+>>>>>>> a21ffae6262b20a3019900a9e3758ff1c63938e5
 
         def test_re(self):
             response = self.client.get(self.r)

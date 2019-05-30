@@ -1,5 +1,7 @@
 from django.test import TestCase,Client
 from django.urls import reverse, resolve
+from Announcements.apps import AnnouncementsConfig
+from django.apps import apps
 
 
 class TestViews(TestCase):
@@ -26,3 +28,7 @@ class TestViews(TestCase):
     def test_astaff1(self):
         url = reverse('astaff', args=[1988])
         self.assertEqual(url, '/login/staff1988/announcement' )
+
+    def test_apps(self):
+        self.assertEqual(AnnouncementsConfig.name, 'Announcements')
+        self.assertEqual(apps.get_app_config('Announcements').name, 'Announcements')

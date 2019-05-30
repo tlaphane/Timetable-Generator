@@ -11,15 +11,14 @@ from django.core.files.storage import FileSystemStorage
 # Create your views here.
 def courses(request, STDN):
 
-    print("inside function")
-
 
     user = RegisteredStd.objects.filter(Std_no=STDN)
+    course = Courses.objects.all()
 
-    print("below s")
     context = {
         'user': user,
         'STDN': STDN,
+        'course': course
     }
     print("inside function")
     # simple_upload(request)
