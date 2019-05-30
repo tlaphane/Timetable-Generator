@@ -25,6 +25,7 @@ install:
   - pip install Django
   - pip install pathlib
   - pip install django-nose
+  - pip install ldap3
 
 
 before_script:
