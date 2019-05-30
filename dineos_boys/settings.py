@@ -60,7 +60,7 @@ NOSE_ARGS =[
 
     '--cover-erase',
     '--with-coverage',
-    '--cover-package=Announcements,Courses,Log_In,loggedin,Make_Announcements',
+    '--cover-package=Announcements,Courses,Log_In,loggedin',
     '--cover-html',
 
 ]
