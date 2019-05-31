@@ -4,6 +4,7 @@ from Announcements.apps import AnnouncementsConfig
 from django.apps import apps
 from Announcements.models import Announcements
 from Courses.models import Courses
+from Log_In.models import Lecturer
 
 
 class TestViews(TestCase):
@@ -44,3 +45,12 @@ class TestViews(TestCase):
         w = self.create_Announcement()
         self.assertTrue(isinstance(w,Courses))
         self.assertEqual(w.__str__(),w.Course_Code)
+
+    def create_A(self,Course_Code = Courses(Course_Code="Course_Code"),Lect_No=Lecturer(Lect_No=10)):
+
+        return Announcements.objects.create(Course_Code=Course_Code,Lect_No=Lect_No)
+
+    def test_a(self):
+        w =self.create_A()
+        self.assertTrue(isinstance(w,Announcements))
+        self.assertEqual(w.__str__(),str(w.Lect_No) + ' - ' + str(w.Course_Code))
