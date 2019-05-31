@@ -5,7 +5,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
 
-    url(r'^', views.makeAnnouncement,name='Maa'),
+    url(r'^', views.makeAnnouncement,name='as'),
 
 
 

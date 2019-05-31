@@ -94,4 +94,26 @@ class AccountTestCase(LiveServerTestCase):
         #assert 'Check' in selenium.page_source
 """
 
+import unittest
+from selenium import webdriver
+
+class TestSignup(unittest.TestCase):
+
+    def setUp(self):
+        self.driver = self.selenium = webdriver.Chrome(ChromeDriverManager().install())
+
+    def test_signup_fire(self):
+        self.driver.get("http://127.0.0.1:8000/login/")
+        self.driver.implicitly_wait(60)
+        self.driver.find_element_by_name('uname').send_keys("1649348")
+        self.driver.find_element_by_id('psw').send_keys("test password")
+
+        self.assertIn("http://127.0.0.1:8000/login/", self.driver.current_url)
+
+    def tearDown(self):
+        self.driver.quit()
+
+if __name__ == '__init__':
+    unittest.main()
+
 

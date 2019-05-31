@@ -9,7 +9,7 @@ class Announcements(models.Model):
     Content = models.CharField(max_length=100)
     Created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
-    # pdf = models.FileField(upload_to='attachments/pdfs/')
+    #pdf = models.FileField(upload_to='attachments/pdfs/')
 
 
     def __str__(self):

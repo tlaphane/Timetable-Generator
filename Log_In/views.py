@@ -25,6 +25,7 @@ def dummy(request, STDN):
     try:
         conn = Connection(server, user=conn_stdin, password=pswin, authentication='SIMPLE',
                               auto_bind=True)
+        access = "granted"
 
     except:
         access = "denied"

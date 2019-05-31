@@ -5,6 +5,7 @@ from django.apps import apps
 from Announcements.models import Announcements
 from Courses.models import Courses
 from Log_In.models import Lecturer
+from Announcements.forms import AnnouncementsForm
 
 
 class TestViews(TestCase):
@@ -32,13 +33,14 @@ class TestViews(TestCase):
         url = reverse('astaff', args=[1988])
         self.assertEqual(url, '/login/staff1988/announcement' )
 
+
+
     def test_apps(self):
         self.assertEqual(AnnouncementsConfig.name, 'Announcements')
         self.assertEqual(apps.get_app_config('Announcements').name, 'Announcements')
 
 
-    def create_Announcement(self,Course_Code= 'seven',Course_Name = 'testing'
-                            ):
+    def create_Announcement(self,Course_Code= 'seven',Course_Name = 'testing'):
         return Courses.objects.create(Course_Code=Course_Code,Course_Name=Course_Name)
 
     def test_an(self):
@@ -54,3 +56,11 @@ class TestViews(TestCase):
         w =self.create_A()
         self.assertTrue(isinstance(w,Announcements))
         self.assertEqual(w.__str__(),str(w.Lect_No) + ' - ' + str(w.Course_Code))
+
+
+
+    def test_inform(self):
+        w = Announcements.objects.create(Course_Code = Courses(Course_Code="Course_Code"),Lect_No=Lecturer(Lect_No=10),Title='Title',Content='Content')
+        data ={'Course_Code':w.Course_Code,'Lect_No':w.Lect_No,}
+        form = AnnouncementsForm(data=data)
+        self.assertFalse(form.is_valid())
