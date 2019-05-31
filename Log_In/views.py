@@ -12,6 +12,7 @@ from ldap3 import Server, Connection, ALL, ALL_ATTRIBUTES, NTLM
 
 def login(request):
     lecturer = Lecturer.objects.all()
+    print("lecture side")
     return render(request, 'Register/Log_in.html',{'lecturer':lecturer})
 
 
@@ -24,14 +25,6 @@ def dummy(request, STDN):
     try:
         conn = Connection(server, user=conn_stdin, password=pswin, authentication='SIMPLE',
                               auto_bind=True)
-        access = "granted"
-        print(access)
-
-
-        #return render(request, 'Register/Loggedin.html', {'STDN': STDN})
-
-
-
 
     except:
         access = "denied"
@@ -39,18 +32,14 @@ def dummy(request, STDN):
         #return render(request, 'Register/Log_in.html', {'error_message': "Wrong password or Student number", })
 
     if(access=="granted"):
-        print("returned granted")
+
         a = '(uid='+str(stdin)+')'
-        print(conn.search('dc=ss,dc=wits,dc=ac,dc=za', a, attributes=ALL_ATTRIBUTES))
 
         user1 = once.objects.filter(Std_no=stdin).exists()
         if (user1 == False):
             user = once(Std_no=stdin)
             user.save()
 
-            print(conn.entries[0].givenName)
-            print(conn.entries[0].sn)
-            print(conn.entries[0].userPrincipalName)
 
             fullname = str(conn.entries[0].givenName) + " " + str(conn.entries[0].sn)
             mail = conn.entries[0].userPrincipalName
@@ -59,7 +48,7 @@ def dummy(request, STDN):
             student.save()
 
             arr = conn.entries[0].memberOf
-            print(arr)
+
             for i in range(0, len(arr)):
                 # print(arr[i])
                 x = arr[i].split(',')
@@ -67,18 +56,20 @@ def dummy(request, STDN):
 
                 if (len(course) == 11):
                     course_code = course[-8:]
-                    print(course_code)
+
                     if (course_code[:-4] == "COMS" or course_code[:-4] == "MATH" or course_code[:-4] == "APPM"):
-                        print(course_code)
+
                         u = RegisteredStd(Std_no=stdin, Course_Code=course_code)
                         u.save()
-
+        print("student can login")
         return render(request, 'Register/Loggedin.html', {'STDN': STDN})
 
     else:
 
         lecturer = Lecturer.objects.all()
         print("returned denied")
+        print("good to go")
+        print("increase coverage")
         return render(request, 'Register/Log_in.html', {'error_message': "Wrong password or Student number", 'lecturer': lecturer })
 
 
@@ -90,7 +81,7 @@ def staff(request,Staff_No):
         stdin = int(request.POST.get('uname', False))
         stdnum = stdin
         pswin = request.POST.get('psw', False)
-     #   user = Lecturer.objects.get(Lect_No=stdin, Password=pswin)
+
         user1 = RegisteredStaffs.objects.filter(Staff_no=Staff_No)
     except StudentsRegister.DoesNotExist:
         if(kep):
@@ -99,8 +90,7 @@ def staff(request,Staff_No):
             return render(request, 'Register/Log_in.html')
 
     else:
-
+        print("you can log in")
         return render(request, 'Register/lecturer_page.html', {'STDN': Staff_No,'staff': user1})
 
 
-   # return render(request, 'Register/lecturer_page.html')

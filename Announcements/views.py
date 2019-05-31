@@ -8,18 +8,17 @@ from django.core.files.storage import FileSystemStorage
 
 # Create your views here.
 def announcement(request, STDN):
-    print("inside function")
-    # print(stdnum);
+
 
     user = Announcements.objects.filter(id=RegisteredStd.objects.filter(Std_no=STDN).count() - 1)
-    # a = Lecturer.objects.filter(Lect_No =user.)
 
-    print("below s")
+
+
     context = {
         'user': user,
         'STDN': STDN,
     }
-    print("inside function")
+
 
     return render(request, 'Register/Announcement.html', context)
 

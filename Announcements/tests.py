@@ -2,6 +2,8 @@ from django.test import TestCase,Client
 from django.urls import reverse, resolve
 from Announcements.apps import AnnouncementsConfig
 from django.apps import apps
+from Announcements.models import Announcements
+from Courses.models import Courses
 
 
 class TestViews(TestCase):
@@ -32,3 +34,13 @@ class TestViews(TestCase):
     def test_apps(self):
         self.assertEqual(AnnouncementsConfig.name, 'Announcements')
         self.assertEqual(apps.get_app_config('Announcements').name, 'Announcements')
+
+
+    def create_Announcement(self,Course_Code= 'seven',Course_Name = 'testing'
+                            ):
+        return Courses.objects.create(Course_Code=Course_Code,Course_Name=Course_Name)
+
+    def test_an(self):
+        w = self.create_Announcement()
+        self.assertTrue(isinstance(w,Courses))
+        self.assertEqual(w.__str__(),w.Course_Code)

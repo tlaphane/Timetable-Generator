@@ -14,3 +14,6 @@ class Announcements(models.Model):
 
     def __str__(self):
         return str(self.Lect_No) + ' - ' + str(self.Course_Code)
+
+    def __unicode__(self):
+        return self.Title

@@ -25,6 +25,9 @@ install:
   - pip install Django
   - pip install pathlib
   - pip install django-nose
+  - pip install ldap3
+  - pip install selenium
+  - pip install webdriver-manager
 
 
 before_script:

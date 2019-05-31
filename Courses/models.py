@@ -8,4 +8,7 @@ class Courses(models.Model):
     # pdf = models.FileField(upload_to='attachments/pdfs/')
 
     def __str__(self):
-        return str(self.Course_Name) + ' - ' + str(self.Course_Code)
+        return str(self.Course_Code)
+
+
+
