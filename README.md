@@ -6,7 +6,7 @@ their registered courses and also enable lecturers to make announcements in Cour
 
 |Release|Build        |Test    |
 |-------|-------------|-------:|
-|[![GitHub Release](https://img.shields.io/badge/release-v2.0-blue.svg)](https://github.com/spmabz/time_table/releases) |[![Build Status](https://travis-ci.com/spmabz/time_table.svg?branch=master)](https://travis-ci.com/spmabz/time_table)|[![codecov](https://codecov.io/gh/spmabz/time_table/branch/master/graph/badge.svg)](https://codecov.io/gh/spmabz/time_table)|
+|[![GitHub Release](https://img.shields.io/badge/release-v4.0-blue.svg)](https://github.com/spmabz/time_table/releases) |[![Build Status](https://travis-ci.com/spmabz/time_table.svg?branch=master)](https://travis-ci.com/spmabz/time_table)|[![codecov](https://codecov.io/gh/spmabz/time_table/branch/master/graph/badge.svg)](https://codecov.io/gh/spmabz/time_table)|
 
 
 ## Table of Contents
